@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import tasksReducer from "./task/slice";
-import authReducer from "./auth/slice";
+import { tasksReducer } from "./taskSlice";
+import { searchFilterReducer } from "./searchSlice";
+import { filterReducer } from "./filterSlice";
 
 export const store = configureStore({
   reducer: {
     tasks: tasksReducer,
-    auth: authReducer,
+    searchFilter: searchFilterReducer,
+    filter: filterReducer,
   },
 });
