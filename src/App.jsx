@@ -1,21 +1,19 @@
-//import { Counter } from "./components/Counter/Counter";
-import { useDispatch } from "react-redux";
-import { TodoList } from "./components/TodoList/TodoList";
-import { useEffect } from "react";
-import { fetchTodos } from "./redux/taskOps";
+import { Route, Routes } from "react-router-dom";
+import { Products } from "./pages/Products";
+import Cart from "./pages/Cart";
+import NotFound from "./pages/NotFound";
+import Header from "./components/Header/Header";
 
 const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchTodos());
-  }, [dispatch]);
-
   return (
-    <>
-      <TodoList />
-    </>
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Products />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
   );
 };
-
 export default App;
